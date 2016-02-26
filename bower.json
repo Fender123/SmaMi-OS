@@ -1,0 +1,19 @@
+{
+  "name": "SmaMi-OS",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/Fender123/SmaMi-OS",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
