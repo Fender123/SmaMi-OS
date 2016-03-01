@@ -1,5 +1,6 @@
 {{<layout}}
     {{$content}}
         <h1>Backend!</h1>
+        <p>Test: {{tmp}}</p>
     {{/content}}
 {{/layout}}
