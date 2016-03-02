@@ -34,3 +34,8 @@ node_modules
 
 # Webstorm files
 .idea
+
+# database files
+/smami
+
+#
