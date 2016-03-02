@@ -16,7 +16,6 @@
     "promise": "^7.1.1",
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.4.5",
-    "socketio": "^1.0.0",
     "stylus": "0.42.3"
   },
   "devDependencies": {
