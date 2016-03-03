@@ -9,8 +9,27 @@ var routes = require('./routes/index');
 var backend = require('./routes/backend');
 
 var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+var io = require('socket.io')();
+app.io = io;
+
+var mqCtx = require('rabbit.js').createContext();
+mqCtx.on('ready', function(){
+    var sub = mqCtx.socket('SUB');
+    sub.pipe(process.stdout);
+    sub.connect('updates');
+    sub.setEncoding('utf8');
+    sub.on('data', function(data){
+        try{
+            data = JSON.parse(data);
+        }catch(e){
+            return;
+        }
+        io.emit('updates', {
+            from: 'sub',
+            data: data
+        });
+    });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -58,6 +77,5 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
